@@ -1,0 +1,17 @@
+header#header
+    .navbar.navbar-fixed-top(role='navigation')
+        .navbar-inner
+            .container
+                a.brand(href='/') Open-PaaS Form Client
+                .nav-collapse.collapse
+                    ul.nav
+                        li
+                            a(href='/forms', title="link listing") Forms
+                        li
+                            a(href="/forms/new", title="new link") New Form
+                        li
+                            form.navbar-search.pull-left(action="/forms/search", method="post")
+                                input#search-query.search-query(type="text", name="query", placeholder="Search")
+                    ul.nav.pull-right
+                            li
+                                a(href="/login", title="Login") Login
