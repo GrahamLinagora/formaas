@@ -1,20 +1,4 @@
-table.table.table-striped
-    thead
-        tr
-            th Id
-            th Name
-            th Date
-            th Actions
-    tbody
-        tr(ng-repeat='form in forms')
-            td
-                a(href='/form/{{form._id}}') {{form._id}}
-            td {{form.name}}
-            td {{form.created_at}}
-            td
-                a.btn(href='/form/{{form._id}}') Edit
-                &nbsp;
-                a.btn(href='/form/{{form._id}}') Deploy
-                &nbsp;
-                a.btn.btn-danger(href='/form/{{form._id}}') Delete
+ul.breadcrumb
+    li.active Home
+
 

@@ -7,7 +7,14 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
       when('/', {
         templateUrl: 'partials/index',
         controller: IndexCtrl
-      })
+      }).when('/forms', {
+        templateUrl: 'partials/forms',
+        controller: FormsCtrl
+      }).
+      when('/instances', {
+        templateUrl: 'partials/instances',
+        controller: InstancesCtrl
+      });
 
     $locationProvider.html5Mode(true);
 
