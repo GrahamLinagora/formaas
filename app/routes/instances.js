@@ -12,7 +12,4 @@
  * @param app
  */
 module.exports = function(app) {
-  app.get('/instances', function(req, res) {
-    res.render('index');
-  });
 }
