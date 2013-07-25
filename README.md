@@ -6,7 +6,7 @@ A simple form manager client sample which shows how to use the form API and Angu
 
 Clone:
 
-    git clone https://github.com/linagora-open-paas/form-server-api.git
+    git clone https://github.com/linagora-open-paas/form-client-angular.git
 
 Install dependencies:
 
@@ -16,6 +16,7 @@ Then:
 
 1. Launch the Form Server API (https://github.com/linagora-open-paas/form-server-api) on http://localhost:3000.
 2. Launch the current application 'node server' or 'npm start'
+3. Open http://localhost:3001
 
 ## TODO
 
