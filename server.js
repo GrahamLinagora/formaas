@@ -18,6 +18,10 @@ var routes = __dirname + '/app/routes';
 fs.readdirSync(routes).forEach(function(file) {
   require(routes + '/' + file)(app);
 });
+// default all other stuff to /
+app.get('*', function(req, res) {
+  res.redirect('/');
+})
 
 app.listen(app.get('port'), function(err) {
   if (err) {
