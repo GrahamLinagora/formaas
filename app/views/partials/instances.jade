@@ -1,0 +1,35 @@
+ul.breadcrumb
+    li
+        a(href='/') Home
+        span.divider /
+    li.active Instances
+
+a.btn.btn-primary(href='/instances/create')
+    i.icon-white.icon-plus
+    &nbsp;New Instance
+
+table.table.table-striped
+    thead
+        tr
+            th #
+            th Name
+            th Published on
+            th State
+            th Actions
+    tbody
+        tr(ng-repeat='instance in instances')
+            td
+                a(href='/instances/{{instance._id}}') {{instance._id}}
+            td {{instance.name}}
+            td {{instance.published_on}}
+            td(ng-show="isTrue(instance.open)")
+                span.label.label-success Open
+            td(ng-show="!isTrue(instance.open)")
+                span.label Closed
+            td
+                a.btn(href='/instances/{{instance._id}}') Results
+                &nbsp;
+                a.btn(href='/instances/{{instance._id}}') Edit
+                &nbsp;
+                a.btn.btn-danger(href='/instances/{{instance._id}}') Delete
+
