@@ -4,9 +4,15 @@ ul.breadcrumb
         span.divider /
     li.active Forms
 
-a.btn.btn-primary(href='/forms/create')
-    i.icon-white.icon-plus
-    &nbsp;New Form
+.row-fluid
+    .span4
+        a.btn.btn-primary(href='')
+            i.icon-white.icon-plus
+            &nbsp;New Form
+
+    .span4.offset4.right
+        form
+            input.input-medium.search-query.input-large(type='text', placeholder="Filter...", ng-model='search.name')
 
 table.table.table-striped
     thead
@@ -16,7 +22,7 @@ table.table.table-striped
             th Date
             th Actions
     tbody
-        tr(ng-repeat='form in forms')
+        tr(ng-repeat='form in forms | filter:search | orderBy:name')
             td
                 a(href='/forms/{{form._id}}') {{form._id}}
             td {{form.name}}

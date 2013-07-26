@@ -4,9 +4,16 @@ ul.breadcrumb
         span.divider /
     li.active Instances
 
-a.btn.btn-primary(href='/instances/create')
-    i.icon-white.icon-plus
-    &nbsp;New Instance
+.row-fluid
+    .span4
+        a.btn.btn-primary(href='todo')
+            i.icon-white.icon-plus
+            &nbsp;New Instance
+
+    .span4.offset4.right
+        form
+            input.input-medium.search-query.input-large(type='text', placeholder="Filter...", ng-model='search.name')
+
 
 table.table.table-striped
     thead
@@ -17,7 +24,7 @@ table.table.table-striped
             th State
             th Actions
     tbody
-        tr(ng-repeat='instance in instances')
+        tr(ng-repeat='instance in instances | filter:search')
             td
                 a(href='/instances/{{instance._id}}') {{instance._id}}
             td {{instance.name}}

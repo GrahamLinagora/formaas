@@ -26,6 +26,12 @@ function FormsCtrl($scope, $http) {
     });
 }
 
+function FormDetailsCtrl($scope, $routeParams, $http) {
+  $http.get(getResource('/forms/' + $routeParams.formId)).success(function(data) {
+    $scope.form = data;
+  });
+}
+
 function InstancesCtrl($scope, $http) {
   $http.get(getResource('/instances'))
     .success(function(data, status, headers, config) {
@@ -34,4 +40,10 @@ function InstancesCtrl($scope, $http) {
     .error(function(data, status, headers, config) {
       $scope.status = status;
     });
+}
+
+function InstanceDetailsCtrl($scope, $routeParams, $http) {
+  $http.get(getResource('/instances/' + $routeParams.instanceId)).success(function(data) {
+    $scope.instance = data;
+  });
 }
