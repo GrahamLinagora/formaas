@@ -27,5 +27,5 @@ app.listen(app.get('port'), function(err) {
   if (err) {
     throw err;
   }
-  console.log('Form server API started on', app.get('port'))
+  console.log('Form server Client started on', app.get('port'))
 });
