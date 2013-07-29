@@ -1,0 +1,30 @@
+ul.breadcrumb
+    li
+        a(href='/') Home
+        span.divider /
+    li
+        a(href='/forms') Forms
+        span.divider /
+    li.active Deploy
+
+.alert
+    span You are about to deploy the form '{{form.name}}'
+
+section
+    blockquote
+        {{form.description}}
+
+section
+    form.form-horizontal(name='form', novalidate)
+        .control-group
+            label.control-label(for='name') Instance Name
+            .controls
+                input(ng-model='deploy.name', name='name', type='text', placeholder='Name', required)
+        .control-group
+            label.control-label(for='description') Instance Description
+            .controls
+                input(ng-model='deploy.description', name='description', type='text', placeholder='Description', required)
+        .form-actions
+            button.btn.btn-primary(ng-click='deployForm()', ng-disabled='form.$invalid', type='submit') Deploy
+            &nbsp;
+            button.btn(type='button') Cancel
