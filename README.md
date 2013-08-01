@@ -1,6 +1,6 @@
-# Form Manager Client
+# FORM as a Service
 
-A simple form manager client sample which shows how to use the form API and Angular.js.
+Form as a Service let you create and instanciate forms in the Open-PaaS platform.
 
 ## Howto
 
