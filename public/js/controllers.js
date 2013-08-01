@@ -77,6 +77,40 @@ function FormDeployCtrl($scope, $routeParams, $http, $location) {
   };
 }
 
+/**
+ * Create a form record.
+ * FIXME : This is temporary since the form is created by the form editor
+ *
+ * @param $scope
+ * @param $http
+ * @constructor
+ */
+function FormCreateCtrl($scope, $http, $location) {
+
+  $scope.form = {};
+
+  $scope.createForm = function() {
+    var payload = {
+      name : $scope.form.name,
+      description : $scope.form.description,
+      anything : 'else...'
+    };
+
+    $http.post(getResource('/forms'), payload).success(function(data, status, headers, config) {
+      toastr.success('Form has been created');
+      $location.path('/forms');
+    }).error(function(data, status, headers, config) {
+      toastr.error('Form can not be created');
+      $location.path('/forms');
+    });
+  }
+
+  $scope.forms = function() {
+    $location.url('/forms');
+  }
+
+}
+
 function InstancesCtrl($scope, $http) {
   $http.get(getResource('/instances'))
     .success(function(data, status, headers, config) {

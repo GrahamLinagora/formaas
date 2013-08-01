@@ -11,6 +11,9 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
       }).when('/forms', {
         templateUrl: '/partials/forms',
         controller: FormsCtrl
+      }).when('/forms/create', {
+        templateUrl: '/partials/create_form',
+        controller: FormCreateCtrl
       }).when('/forms/:formId', {
         templateUrl: '/partials/form',
         controller: FormDetailsCtrl

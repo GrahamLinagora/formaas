@@ -1,0 +1,26 @@
+ul.breadcrumb
+    li
+        a(href='/') Home
+        span.divider /
+    li
+        a(href='/forms') Forms
+        span.divider /
+    li.active Create
+
+.alert.alert-danger
+    span Create a new Form (temporary)
+
+section
+    form.form-horizontal(name='create', novalidate)
+        .control-group
+            label.control-label(for='name') Form Name
+            .controls
+                input(ng-model='form.name', name='name', type='text', placeholder='Name', required)
+        .control-group
+            label.control-label(for='description') Form Description
+            .controls
+                input(ng-model='form.description', name='description', type='text', placeholder='Description', required)
+        .form-actions
+            button.btn.btn-primary(ng-click='createForm()', ng-disabled='form.$invalid', type='submit') Create
+            &nbsp;
+            button.btn(ng-click='forms()', type='button') Cancel
