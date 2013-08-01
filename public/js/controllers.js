@@ -71,6 +71,10 @@ function FormDeployCtrl($scope, $routeParams, $http, $location) {
       $location.path('/forms');
     });
   }
+
+  $scope.forms = function () {
+    $location.url('/forms');
+  };
 }
 
 function InstancesCtrl($scope, $http) {
