@@ -2,14 +2,14 @@ header#header
     .navbar.navbar-fixed-top(role='navigation')
         .navbar-inner
             .container
-                a.brand(href='/') Open-PaaS Form Client
+                a.brand(href='/') FORMaaS
                 .nav-collapse.collapse
                     ul.nav
                         li
                             a(href='/forms', title="Form list") Forms
                         li
                             a(href='/instances', title="Instances list") Instances
-                        li
+                        //li
                             form.navbar-search.pull-left(action="/forms/search", method="post")
                                 input#search-query.search-query(type="text", name="query", placeholder="Search")
                     ul.nav.pull-right
