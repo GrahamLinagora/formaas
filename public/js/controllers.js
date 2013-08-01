@@ -7,7 +7,6 @@ var getResource = function(path) {
 }
 
 function IndexCtrl($scope, $http) {
-
 }
 
 function HeaderController($scope) {
@@ -21,6 +20,7 @@ function FormsCtrl($scope, $http) {
       $scope.forms = data;
     })
     .error(function(data, status, headers, config) {
+      toastr.error('Can not get forms');
       $scope.status = status;
     });
 }
@@ -32,6 +32,10 @@ function FormDetailsCtrl($scope, $routeParams, $http, $location) {
 
   $scope.deleteForm = function() {
     $http.delete(getResource('/forms/' + $routeParams.formId)).success(function(data) {
+      toastr.success('Form \'' + $scope.form.name + '\' has been deleted');
+      $location.path('/forms');
+    }).error(function(data) {
+      toastr.error('Form can not be deleted');
       $location.path('/forms');
     })
   }
@@ -60,9 +64,11 @@ function FormDeployCtrl($scope, $routeParams, $http, $location) {
       form : $routeParams.formId
     }
     $http.post(getResource('/instances'), payload).success(function(data, status, headers, config) {
+      toastr.success('Form has been deployed');
       $location.path('/instances');
     }).error(function(data, status, headers, config) {
-      // TODO : Display error
+      toastr.error('Form can not be deployed');
+      $location.path('/forms');
     });
   }
 }
@@ -73,6 +79,7 @@ function InstancesCtrl($scope, $http) {
       $scope.instances = data;
     })
     .error(function(data, status, headers, config) {
+      toastr.error('Can not get instances');
       $scope.status = status;
     });
 }
@@ -84,7 +91,11 @@ function InstanceDetailsCtrl($scope, $routeParams, $http, $location) {
 
   $scope.deleteInstance = function() {
     $http.delete(getResource('/instances/' + $routeParams.instanceId)).success(function (data) {
+      toastr.success('Instance \'' + $scope.instance.name + '\' has been deleted');
       $location.path('/instances');
+    }).error(function(data) {
+        toastr.error('Instance \'' + $scope.instance.name + '\' can not be deleted');
+        $location.path('/instances');
     })
   }
 }
