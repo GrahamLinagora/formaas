@@ -25,10 +25,16 @@ function FormsCtrl($scope, $http) {
     });
 }
 
-function FormDetailsCtrl($scope, $routeParams, $http) {
+function FormDetailsCtrl($scope, $routeParams, $http, $location) {
   $http.get(getResource('/forms/' + $routeParams.formId)).success(function(data) {
     $scope.form = data;
   });
+
+  $scope.deleteForm = function() {
+    $http.delete(getResource('/forms/' + $routeParams.formId)).success(function(data) {
+      $location.path('/forms');
+    })
+  }
 }
 
 /**
@@ -71,8 +77,14 @@ function InstancesCtrl($scope, $http) {
     });
 }
 
-function InstanceDetailsCtrl($scope, $routeParams, $http) {
+function InstanceDetailsCtrl($scope, $routeParams, $http, $location) {
   $http.get(getResource('/instances/' + $routeParams.instanceId)).success(function(data) {
     $scope.instance = data;
   });
+
+  $scope.deleteInstance = function() {
+    $http.delete(getResource('/instances/' + $routeParams.instanceId)).success(function (data) {
+      $location.path('/instances');
+    })
+  }
 }

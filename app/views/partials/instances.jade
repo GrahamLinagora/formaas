@@ -34,9 +34,7 @@ table.table.table-striped
             td(ng-show="!isTrue(instance.open)")
                 span.label Closed
             td
-                a.btn(href='/instances/{{instance._id}}') Results
+                a.btn(href='/results/{{instance._id}}') Results
                 &nbsp;
-                a.btn(href='/instances/{{instance._id}}') Edit
-                &nbsp;
-                a.btn.btn-danger(href='/instances/{{instance._id}}') Delete
+                a.btn(href='/instances/{{instance._id}}') Details
 
