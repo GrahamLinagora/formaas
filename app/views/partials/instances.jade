@@ -24,7 +24,7 @@ table.table.table-striped
             th State
             th Actions
     tbody
-        tr(ng-repeat="instance in instances | filter:search | orderBy:'published_on':true")
+        tr(ng-repeat="instance in instances | filter:search | orderBy:'-published_on'")
             td
                 a(href='/instances/{{instance._id}}') {{instance._id}}
             td {{instance.name}}
