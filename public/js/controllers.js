@@ -13,28 +13,24 @@ function HeaderController($scope) {
   $scope.template = 'partials/header';
 }
 
-function FormsCtrl($scope, $http) {
-  $http.get(getResource('/forms'))
-    .success(function(data, status, headers, config) {
-      $scope.status = status;
-      $scope.forms = data;
-    })
-    .error(function(data, status, headers, config) {
-      toastr.error('Can not get forms');
-      $scope.status = status;
-    });
+function FormsCtrl($scope, Form) {
+  $scope.forms = Form.query(function() {
+    // loaded
+  }, function() {
+    // error
+    toastr.error('Can not retrieve forms');
+  });
 }
 
-function FormDetailsCtrl($scope, $routeParams, $http, $location) {
-  $http.get(getResource('/forms/' + $routeParams.formId)).success(function(data) {
-    $scope.form = data;
-  });
+function FormDetailsCtrl($scope, $routeParams, $location, Form) {
+  $scope.form = Form.get({ formId : $routeParams.formId });
 
   $scope.deleteForm = function() {
-    $http.delete(getResource('/forms/' + $routeParams.formId)).success(function(data) {
+    Form.delete({formId :  $routeParams.formId}, function() {
       toastr.success('Form \'' + $scope.form.name + '\' has been deleted');
       $location.path('/forms');
-    }).error(function(data) {
+    }, function() {
+      // error
       toastr.error('Form can not be deleted');
       $location.path('/forms');
     })
@@ -49,11 +45,10 @@ function FormDetailsCtrl($scope, $routeParams, $http, $location) {
  * @param $http
  * @constructor
  */
-function FormDeployCtrl($scope, $routeParams, $http, $location) {
-  $http.get(getResource('/forms/' + $routeParams.formId)).success(function(data) {
-    $scope.form = data;
+function FormDeployCtrl($scope, $routeParams, $location, Form, Instance) {
+  var form = Form.get({formId : $routeParams.formId}, function() {
+    $scope.form = form;
   });
-
   $scope.deploy = {};
 
   // TODO : Validate input data
@@ -63,10 +58,11 @@ function FormDeployCtrl($scope, $routeParams, $http, $location) {
       description : $scope.deploy.description,
       form : $routeParams.formId
     }
-    $http.post(getResource('/instances'), payload).success(function(data, status, headers, config) {
+    var instance = new Instance(payload);
+    instance.$save(function() {
       toastr.success('Form has been deployed');
       $location.path('/instances');
-    }).error(function(data, status, headers, config) {
+    }, function() {
       toastr.error('Form can not be deployed');
       $location.path('/forms');
     });
@@ -85,8 +81,7 @@ function FormDeployCtrl($scope, $routeParams, $http, $location) {
  * @param $http
  * @constructor
  */
-function FormCreateCtrl($scope, $http, $location) {
-
+function FormCreateCtrl($scope, $location, Form) {
   $scope.form = {};
 
   $scope.createForm = function() {
@@ -96,10 +91,13 @@ function FormCreateCtrl($scope, $http, $location) {
       anything : 'else...'
     };
 
-    $http.post(getResource('/forms'), payload).success(function(data, status, headers, config) {
+    var form = new Form(payload);
+    form.$save(function() {
+      // success
       toastr.success('Form has been created');
       $location.path('/forms');
-    }).error(function(data, status, headers, config) {
+    }, function() {
+      // error
       toastr.error('Form can not be created');
       $location.path('/forms');
     });
@@ -108,32 +106,22 @@ function FormCreateCtrl($scope, $http, $location) {
   $scope.forms = function() {
     $location.url('/forms');
   }
-
 }
 
-function InstancesCtrl($scope, $http) {
-  $http.get(getResource('/instances'))
-    .success(function(data, status, headers, config) {
-      $scope.instances = data;
-    })
-    .error(function(data, status, headers, config) {
-      toastr.error('Can not get instances');
-      $scope.status = status;
-    });
+function InstancesCtrl($scope, Instance) {
+  $scope.instances = Instance.query();
 }
 
-function InstanceDetailsCtrl($scope, $routeParams, $http, $location) {
-  $http.get(getResource('/instances/' + $routeParams.instanceId)).success(function(data) {
-    $scope.instance = data;
-  });
+function InstanceDetailsCtrl($scope, $routeParams, $location, Instance) {
+  $scope.instance = Instance.get({instanceId : $routeParams.instanceId});
 
   $scope.deleteInstance = function() {
-    $http.delete(getResource('/instances/' + $routeParams.instanceId)).success(function (data) {
+    Instance.delete({instanceId : $routeParams.instanceId}, function() {
       toastr.success('Instance \'' + $scope.instance.name + '\' has been deleted');
       $location.path('/instances');
-    }).error(function(data) {
-        toastr.error('Instance \'' + $scope.instance.name + '\' can not be deleted');
-        $location.path('/instances');
+    }, function() {
+      toastr.error('Instance \'' + $scope.instance.name + '\' can not be deleted');
+      $location.path('/instances');
     })
   }
 }
