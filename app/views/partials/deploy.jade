@@ -23,7 +23,7 @@ section
         .control-group
             label.control-label(for='description') Instance Description
             .controls
-                input(ng-model='deploy.description', name='description', type='text', placeholder='Description', required)
+                textarea.span8(ng-model='deploy.description', name='description', placeholder='Description', rows='5', required)
         .form-actions
             button.btn.btn-primary(ng-click='deployForm()', ng-disabled='form.$invalid', type='submit') Deploy
             &nbsp;

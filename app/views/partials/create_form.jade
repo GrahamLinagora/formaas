@@ -19,7 +19,7 @@ section
         .control-group
             label.control-label(for='description') Form Description
             .controls
-                input(ng-model='form.description', name='description', type='text', placeholder='Description', required)
+                textarea.span8(ng-model='form.description', name='description', placeholder='Description', rows='5', required)
         .form-actions
             button.btn.btn-primary(ng-click='createForm()', ng-disabled='form.$invalid', type='submit') Create
             &nbsp;
