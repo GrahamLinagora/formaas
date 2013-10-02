@@ -112,8 +112,9 @@ function InstancesCtrl($scope, Instance) {
   $scope.instances = Instance.query();
 }
 
-function InstanceDetailsCtrl($scope, $routeParams, $location, Instance) {
+function InstanceDetailsCtrl($scope, $routeParams, $location, Instance, Result) {
   $scope.instance = Instance.get({instanceId : $routeParams.instanceId});
+  $scope.results = Result.query({instance : $routeParams.instanceId});
 
   $scope.deleteInstance = function() {
     Instance.delete({instanceId : $routeParams.instanceId}, function() {
@@ -122,6 +123,24 @@ function InstanceDetailsCtrl($scope, $routeParams, $location, Instance) {
     }, function() {
       toastr.error('Instance \'' + $scope.instance.name + '\' can not be deleted');
       $location.path('/instances');
+    })
+  }
+}
+
+function ResultsCtrl($scope, Result) {
+  $scope.results = Result.query();
+}
+
+function ResultDetailsCtrl($scope, $routeParams, $location, Result) {
+  $scope.result = Result.get({resultId : $routeParams.resultId});
+
+  $scope.deleteResult = function() {
+    Result.delete({resultId : $routeParams.resultId}, function() {
+      toastr.success('Result has been deleted');
+      $location.path('/results');
+    }, function() {
+      toastr.error('Result can not be deleted');
+      $location.path('/results');
     })
   }
 }

@@ -23,3 +23,12 @@ angular.module('myApp.instanceService', ['ngResource']).
       }
     });
   });
+
+angular.module('myApp.resultService', ['ngResource']).
+  factory('Result', function($resource) {
+    return $resource('http://localhost\\:3000/results/:resultId', {}, {
+      query: {
+        method:'GET', isArray:true
+      }
+    });
+});

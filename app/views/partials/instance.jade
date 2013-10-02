@@ -18,3 +18,11 @@ section
         a.btn.btn-info(href='/forms/{{instance.form}}') View Form
         &nbsp;
         button.btn.btn-danger(ng-click='deleteInstance()') Delete
+
+section(ng-show="results.length > 0")
+    h4 Results
+    blockquote(ng-repeat="result in results | orderBy:'-created_at'")
+      {{result}}
+
+section(ng-show="results.length == 0")
+    h4 No results

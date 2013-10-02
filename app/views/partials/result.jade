@@ -1,0 +1,18 @@
+ul.breadcrumb
+    li
+        a(href='/') Home
+        span.divider /
+    li
+        a(href='/results') Results
+        span.divider /
+    li.active {{result._id}}
+
+section
+    blockquote
+        {{result}}
+
+.well
+    span.pull-right
+        a.btn.btn-info(href='/instances/{{result.instance}}') View Instance
+        &nbsp;
+        button.btn.btn-danger(ng-click='deleteResult()') Delete

@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-var formaas = angular.module('myApp', ['myApp.filters', 'myApp.formService', 'myApp.instanceService', 'myApp.directives']);
+var formaas = angular.module('myApp', ['myApp.filters', 'myApp.formService', 'myApp.instanceService', 'myApp.resultService', 'myApp.directives']);
 
 angular.module('myApp').constant('FORM_API', {
   baseUrl: 'http://localhost:3000'
@@ -30,11 +30,17 @@ formaas.config(['$routeProvider', '$locationProvider', '$httpProvider', function
       }).when('/instances/:instanceId', {
         templateUrl: '/partials/instance',
         controller: InstanceDetailsCtrl
+      }).when('/results', {
+        templateUrl: '/partials/results',
+        controller: ResultsCtrl
+      }).when('/results/:resultId', {
+        templateUrl: '/partials/result',
+        controller: ResultDetailsCtrl
       });
 
     $locationProvider.html5Mode(true);
 
-    // cf http://better-inter.net/enabling-cors-in-angular-js/
+  // cf http://better-inter.net/enabling-cors-in-angular-js/
     // CORS configuration
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
