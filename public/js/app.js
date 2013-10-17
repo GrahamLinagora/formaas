@@ -1,10 +1,12 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-var formaas = angular.module('myApp', ['myApp.filters', 'myApp.formService', 'myApp.instanceService', 'myApp.resultService', 'myApp.directives']);
+var formaas = angular.module('myApp', ['myApp.filters', 'myApp.formService', 'myApp.instanceService', 'myApp.resultService', 'myApp.configService', 'myApp.directives']);
 
-angular.module('myApp').constant('FORM_API', {
-  baseUrl: 'http://localhost:3000'
+formaas.constant('config', {
+  // TODO : Get them from server or external resource with httpservice
+  // Constants are injected by angular, check services.js
+  formApiUri: 'http://localhost\\:3001'
 });
 
 formaas.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {

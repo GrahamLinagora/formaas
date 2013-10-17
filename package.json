@@ -1,7 +1,7 @@
 {
   "name": "form-client-angular",
   "version": "0.0.0",
-  "description": "Angular client for forms",
+  "description": "HTML forms as a service",
   "author": "Christophe Hamerling <chamerling@linagora.com>",
   "homepage": "http://github.com/linagora-open-paas/form-client-angular",
   "keywords": [
