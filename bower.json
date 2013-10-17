@@ -1,0 +1,13 @@
+{
+  "name": "formaas",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "=1.0.8",
+    "angular-resource": "=1.0.8",
+    "jquery": "=1.9.1",
+    "bootstrap-css": "2.3.2",
+    "toastr": "2.0.1",
+    "form-client-lib" : "git://github.com/linagora-open-paas/form-client-lib.git#master",
+    "form-client-modeler" : "git://github.com/linagora-open-paas/form-client-modeler.git#master"
+  }
+}
