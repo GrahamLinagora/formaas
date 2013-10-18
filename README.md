@@ -1,4 +1,4 @@
-# FORM as a Service
+# HTML Forms as a Service
 
 Form as a Service let you create and instanciate forms in the Open-PaaS platform.
 

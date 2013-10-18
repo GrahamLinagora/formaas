@@ -1,9 +1,9 @@
 {
-  "name": "form-client-angular",
+  "name": "formaas",
   "version": "0.0.0",
   "description": "HTML forms as a service",
   "author": "Christophe Hamerling <chamerling@linagora.com>",
-  "homepage": "http://github.com/linagora-open-paas/form-client-angular",
+  "homepage": "http://github.com/linagora-open-paas/formaas",
   "keywords": [
     "node", "form", "model"
   ],
@@ -14,7 +14,7 @@
 
   "repository": {
     "type": "git",
-    "url": "https://github.com/linagora-open-paas/form-client-angular.git"
+    "url": "https://github.com/linagora-open-paas/formaas.git"
   },
   "dependencies": {
     "request": "latest",
