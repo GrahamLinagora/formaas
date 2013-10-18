@@ -14,9 +14,9 @@ Install dependencies (this assumes that you have node, npm and bower installed):
 
 Then:
 
-1. Launch the Form Server API (https://github.com/linagora-open-paas/form-server-api) on http://localhost:3000.
-2. Launch the current application 'node server' or 'npm start'
-3. Open http://localhost:3001
+0. Launch the Form Server API (https://github.com/linagora-open-paas/form-server-api) on http://localhost:3000.
+1. Launch the current application 'node server' or 'npm start'
+2. Open http://localhost:3001
 
 You can configure the application on ./config/config.js.
 
