@@ -38,7 +38,7 @@ formaas.config(['$routeProvider', '$locationProvider', '$httpProvider', function
       }).when('/results/:resultId', {
         templateUrl: '/partials/result',
         controller: ResultDetailsCtrl
-      });
+      })
 
     $locationProvider.html5Mode(true);
 

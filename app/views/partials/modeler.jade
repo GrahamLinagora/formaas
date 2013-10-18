@@ -1,0 +1,34 @@
+#formListDiv.container
+    button.newForm.btn.btn-primary New Form
+
+#formEditionDiv.container
+    fieldset
+        .control-group
+            .controls
+                button#saveButton.btn.saveForm Save
+                button#closeButton.btn.closeEditor Close
+                button#deployButton.btn.deployForm Deploy
+        .control-group
+            label.control-label(for='nameInput') Name
+            .controls
+                input#nameInput.input-xlarge(name='nameInput', type='text')
+        .control-group
+            label.control-label(for='descInput') Description
+            .controls
+                input#descInput.input-xlarge(name='descInput', type='text')
+
+    .row.clearfix
+        .span6
+            .clearfix
+                h2 Aperçu
+                hr
+                #build
+                    form#target.form-horizontal
+
+        .span6
+            h2 Drag & Drop components
+            .tabbable
+                ul#navtab.nav.nav-tabs
+                form#components.form-horizontal
+                    fieldset
+                        .tab-content
