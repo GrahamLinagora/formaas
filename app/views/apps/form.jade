@@ -1,0 +1,26 @@
+!!! 5
+html(lang='en', xmlns='http://www.w3.org/1999/xhtml', xmlns:fb='https://www.facebook.com/2008/fbml', itemscope='itemscope', itemtype='http://schema.org/Product')
+    include ../includes/head
+    body
+        .wrapper
+            .container
+                .main-content
+                    .main-head
+                        .page_header
+                            block main
+                    block content
+                        #formEditionDiv.container
+                            .row.clearfix
+                                .span6
+                                    .clearfix
+                                        h2#nameH2
+                                        h4#descH4
+                                        hr
+                                        #build
+                                            form#target.form-horizontal
+                                    #submitDiv
+                                        button#submitButton.submit.btn.btn-inverse Submit
+
+        .pull
+        script(data-main='/js/lib/form.js', src='/components/form-client-lib/src/static/js/lib/require.js')
+

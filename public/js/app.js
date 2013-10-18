@@ -6,7 +6,7 @@ var formaas = angular.module('myApp', ['myApp.filters', 'myApp.formService', 'my
 formaas.constant('config', {
   // TODO : Get them from server or external resource with httpservice
   // Constants are injected by angular, check services.js
-  formApiUri: 'http://localhost\\:3001'
+  formApiUri: 'http://localhost\\:3000'
 });
 
 formaas.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {

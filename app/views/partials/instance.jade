@@ -15,7 +15,9 @@ section
     span.pull-right
         a.btn.btn-info(href='#') Edit
         &nbsp;
-        a.btn.btn-info(href='/forms/{{instance.form}}') View Form
+        a.btn.btn-info(href='/forms/{{instance.form}}') Form Model
+        &nbsp;
+        a.btn.btn-info(target='_blank', href='/apps/form/{{instance._id}}') Fill form
         &nbsp;
         button.btn.btn-danger(ng-click='deleteInstance()') Delete
 
