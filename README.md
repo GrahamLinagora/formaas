@@ -1,5 +1,7 @@
 # HTML Forms as a Service
 
+[![Join the chat at https://gitter.im/GrahamLinagora/formaas](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/GrahamLinagora/formaas?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Form as a Service let you create and instanciate forms in the Open-PaaS platform.
 
 ## Howto
